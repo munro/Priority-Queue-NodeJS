@@ -49,6 +49,23 @@ console.log("Priority Queue tests ...");
 })();
 
 (function() {
+	console.log("+ pop() should be FIFO for items at same priority");
+	q = new PriorityQueue();
+	q.push('Douglas Adams', 50);
+	q.push('Steve Jobs', 100);
+	q.push('Bill Gates', 50);
+	q.push('Steve Ballmer', 2);
+	q.push('Walt Disney', 100);
+	ASSERT.equal(q.length, 5);
+	ASSERT.equal('Steve Jobs', q.pop());
+	ASSERT.equal('Walt Disney', q.pop());
+	ASSERT.equal('Douglas Adams', q.pop());
+	ASSERT.equal('Bill Gates', q.pop());
+	ASSERT.equal('Steve Ballmer', q.pop());
+	ASSERT.equal(q.length, 0);
+})();
+
+(function() {
 	console.log("+ top() and bottom()");
 	q = new PriorityQueue();
 	q.push('Douglas Adams', 100);
